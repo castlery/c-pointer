@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义样式 */
+.analyzer-highlight-preview {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border: 2px dashed #3B82F6;
+  border-radius: 4px;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.analyzer-highlight-selected {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border: 2px solid #22C55E;
+  border-radius: 4px;
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.analyzer-type-label {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  border-radius: 4px 4px 0 0;
+}
+
+.analyzer-type-label.fortress {
+  background-color: #8B5CF6;
+}
+
+.analyzer-type-label.business {
+  background-color: #F59E0B;
+}
+
+.analyzer-type-label.shared {
+  background-color: #06B6D4;
+}
+
+.analyzer-type-label.unknown {
+  background-color: #6B7280;
+}

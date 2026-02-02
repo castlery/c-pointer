@@ -1,0 +1,26 @@
+{
+  "name": "component-code-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "组件代码分析器 - 帮助理解 React 组件实现细节",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:backend": "pnpm --filter backend-service dev",
+    "dev:extension": "pnpm --filter browser-extension dev",
+    "build": "pnpm -r build",
+    "build:backend": "pnpm --filter backend-service build",
+    "build:extension": "pnpm --filter browser-extension build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

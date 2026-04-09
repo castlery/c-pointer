@@ -4,7 +4,8 @@
 
 文档入口：
 
-- [产品需求文档](docs/product-requirements.md)
+- [文档索引](docs/README.md)
+- [产品需求文档（整合版）](docs/product-requirements.md)
 
 当前目标：
 

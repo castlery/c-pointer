@@ -14,14 +14,16 @@ export function Drawer({ open, title, subtitle, onClose, children }: PropsWithCh
         position: "fixed",
         top: 0,
         right: 0,
-        width: 420,
+        width: 468,
         maxWidth: "100vw",
         height: "100vh",
-        background: "var(--fortress-surface)",
+        background: "linear-gradient(180deg, rgba(251, 249, 244, 0.98) 0%, rgba(247, 242, 238, 0.98) 100%)",
         color: "var(--fortress-ink)",
-        boxShadow: "-16px 0 36px rgba(60, 16, 30, 0.16)",
+        borderLeft: "1px solid rgba(165, 145, 152, 0.22)",
+        boxShadow: "-24px 0 60px rgba(60, 16, 30, 0.14)",
+        backdropFilter: "blur(18px)",
         transform: open ? "translateX(0)" : "translateX(110%)",
-        transition: "transform 180ms ease",
+        transition: "transform 180ms ease, box-shadow 180ms ease",
         zIndex: 2147483647,
         display: "flex",
         flexDirection: "column"
@@ -29,8 +31,8 @@ export function Drawer({ open, title, subtitle, onClose, children }: PropsWithCh
     >
       <div
         style={{
-          padding: "24px 24px 20px",
-          borderBottom: "1px solid rgba(165, 145, 152, 0.2)"
+          padding: "20px 24px 18px",
+          borderBottom: "1px solid rgba(165, 145, 152, 0.16)"
         }}
       >
         <div
@@ -44,7 +46,19 @@ export function Drawer({ open, title, subtitle, onClose, children }: PropsWithCh
           <div>
             <div
               style={{
-                fontSize: 24,
+                fontSize: 12,
+                lineHeight: 1,
+                letterSpacing: 0.8,
+                textTransform: "uppercase",
+                color: "var(--fortress-muted)",
+                marginBottom: 10
+              }}
+            >
+              New Agent
+            </div>
+            <div
+              style={{
+                fontSize: 28,
                 lineHeight: 1.1,
                 fontFamily: "var(--fortress-font-heading)",
                 color: "var(--fortress-ink)"
@@ -56,10 +70,10 @@ export function Drawer({ open, title, subtitle, onClose, children }: PropsWithCh
               <div
                 style={{
                   marginTop: 8,
-                  fontSize: 14,
+                  fontSize: 13,
                   lineHeight: 1.4,
                   color: "var(--fortress-muted)",
-                  fontFamily: "var(--fortress-font-body)"
+                  maxWidth: 320
                 }}
               >
                 {subtitle}
@@ -69,14 +83,15 @@ export function Drawer({ open, title, subtitle, onClose, children }: PropsWithCh
           <button
             onClick={onClose}
             style={{
-              border: "1px solid rgba(165, 145, 152, 0.28)",
-              background: "transparent",
+              border: "1px solid rgba(165, 145, 152, 0.22)",
+              background: "rgba(255,255,255,0.58)",
               color: "var(--fortress-ink)",
               borderRadius: 999,
-              width: 36,
-              height: 36,
+              width: 38,
+              height: 38,
               cursor: "pointer",
-              fontSize: 16
+              fontSize: 16,
+              backdropFilter: "blur(12px)"
             }}
           >
             ×
@@ -85,11 +100,11 @@ export function Drawer({ open, title, subtitle, onClose, children }: PropsWithCh
       </div>
       <div
         style={{
-          padding: 24,
+          padding: 20,
           overflowY: "auto",
           display: "flex",
           flexDirection: "column",
-          gap: 20,
+          gap: 16,
           flex: 1
         }}
       >

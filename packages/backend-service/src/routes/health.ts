@@ -1,23 +1,35 @@
 import { Router } from "express";
 import type { HealthResponse } from "@c-pointer/shared";
-import { config } from "../lib/config.js";
+import { database } from "../lib/database.js";
+import { verifyGithubRepoAccess } from "../lib/githubClient.js";
+import { verifyOpenAiAccess } from "../lib/openAiClient.js";
 import { historyStore } from "../services/historyStore.js";
 
 const router = Router();
 
-router.get("/", (_req, res) => {
-  historyStore.cleanupExpired();
+router.get("/", async (_req, res, next) => {
+  try {
+    historyStore.cleanupExpired();
+    database.prepare("SELECT 1").get();
 
-  const response: HealthResponse = {
-    status: "ok",
-    checks: {
-      github: config.githubToken ? "ok" : "missing",
-      openai: config.openAiApiKey ? "ok" : "missing",
-      historyStore: "ok"
-    }
-  };
+    const [github, openai] = await Promise.all([
+      verifyGithubRepoAccess(),
+      verifyOpenAiAccess()
+    ]);
 
-  res.json(response);
+    const response: HealthResponse = {
+      status: github === "error" || openai === "error" ? "error" : "ok",
+      checks: {
+        github,
+        openai,
+        historyStore: "ok"
+      }
+    };
+
+    res.json(response);
+  } catch (error) {
+    next(error);
+  }
 });
 
 export default router;

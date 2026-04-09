@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C-Pointer Fixture</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Georgia, serif;
+        background: linear-gradient(180deg, #fbf9f4 0%, #f4ede8 100%);
+        color: #3c101e;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 48px 24px 120px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(165, 145, 152, 0.18);
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: 0 20px 40px rgba(60, 16, 30, 0.08);
+      }
+
+      .cta {
+        margin-top: 24px;
+        border: none;
+        border-radius: 999px;
+        padding: 14px 20px;
+        background: #d25c1b;
+        color: #fbf9f4;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <h1>POS Service Item Drawer</h1>
+        <p>Select the action below to simulate the real codeInspectorPlugin workflow.</p>
+        <button
+          class="cta"
+          data-testid="fixture-target"
+          data-insp-path="libs/modules/cart/components/src/lib/pos-add-service-items/pos-add-service-items.tsx:119:7:Button"
+        >
+          Add service item
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

@@ -39,7 +39,7 @@ export function App() {
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         <div style={{ fontSize: 28, lineHeight: 1, fontFamily: "Iowan Old Style, serif" }}>C-Pointer</div>
         <div style={{ fontSize: 14, lineHeight: 1.4, color: "#A59198" }}>
-          Fortress-inspired analyzer UI for Castlery test environments.
+          Cursor-style side panel for Castlery Web and POS test environments.
         </div>
       </div>
 
@@ -57,7 +57,7 @@ export function App() {
       </div>
 
       <PrimaryButton fullWidth onClick={() => void toggleAnalyzer()}>
-        Open Analyzer Drawer
+        Start Component Selection
       </PrimaryButton>
     </div>
   );

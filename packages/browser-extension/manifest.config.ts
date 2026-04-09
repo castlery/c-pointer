@@ -13,6 +13,8 @@ export default defineManifest({
   host_permissions: [
     "https://www-test.castlery.com/*",
     "https://pos-test.castlery.com/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*",
     "http://localhost:3001/*"
   ],
   action: {
@@ -26,7 +28,9 @@ export default defineManifest({
     {
       matches: [
         "https://www-test.castlery.com/*",
-        "https://pos-test.castlery.com/*"
+        "https://pos-test.castlery.com/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
       ],
       js: [
         "src/content/index.tsx"

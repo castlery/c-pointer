@@ -22,11 +22,23 @@ const analysisSchema = z.object({
   }).optional()
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res, next) => {
+  try {
   const parsed = analysisSchema.parse(req.body) as AnalysisRequest;
-  const response = analyzeSelection(parsed);
-  historyStore.createFromAnalysis(parsed, response);
-  res.json(response);
+    const result = await analyzeSelection(parsed);
+    historyStore.createFromAnalysis({
+      request: parsed,
+      response: result.response,
+      summary: {
+        confirmedFacts: result.persistence.confirmedFacts,
+        openQuestions: result.persistence.openQuestions
+      },
+      contextFiles: result.persistence.contextFiles
+    });
+    res.json(result.response);
+  } catch (error) {
+    next(error);
+  }
 });
 
 export default router;

@@ -7,13 +7,21 @@ export const fortressCss = `
     --fortress-line: #BEBEBE;
     --fortress-surface: #FBF9F4;
     --fortress-surface-muted: #F4EDE8;
+    --fortress-surface-elevated: rgba(255, 255, 255, 0.94);
     --fortress-error: #65000B;
-    --fortress-font-heading: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
-    --fortress-font-body: "Georgia", "Times New Roman", serif;
+    --fortress-font-heading: "Aime", "Iowan Old Style", "Palatino Linotype", serif;
+    --fortress-font-body: "Aime", "Georgia", "Times New Roman", serif;
   }
 
   * {
     box-sizing: border-box;
+  }
+
+  :host,
+  button,
+  input,
+  textarea {
+    font-family: var(--fortress-font-body);
   }
 
   button:hover {
@@ -25,6 +33,10 @@ export const fortressCss = `
   }
 
   input::placeholder {
+    color: var(--fortress-muted);
+  }
+
+  textarea::placeholder {
     color: var(--fortress-muted);
   }
 `;

@@ -23,5 +23,12 @@ export function createApp() {
   app.use("/v1/history", historyRouter);
   app.use("/v1/health", healthRouter);
 
+  app.use((error: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+    res.status(500).json({
+      code: "INTERNAL_ERROR",
+      message: error.message
+    });
+  });
+
   return app;
 }

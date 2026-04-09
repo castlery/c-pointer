@@ -123,8 +123,8 @@ export interface SessionDetailResponse {
 export interface HealthResponse {
   status: "ok" | "error";
   checks: {
-    github: "ok" | "missing";
-    openai: "ok" | "missing";
+    github: "ok" | "missing" | "error";
+    openai: "ok" | "missing" | "error";
     historyStore: "ok";
   };
 }

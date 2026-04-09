@@ -8,7 +8,7 @@ import type {
   SessionListResponse
 } from "@c-pointer/shared";
 
-const DEFAULT_BASE_URL = "http://localhost:3001";
+const DEFAULT_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
 
 class ApiClient {
   private baseUrl = DEFAULT_BASE_URL;

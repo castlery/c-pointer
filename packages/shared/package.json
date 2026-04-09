@@ -1,0 +1,12 @@
+{
+  "name": "@c-pointer/shared",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --emitDeclarationOnly",
+    "clean": "rm -rf dist"
+  }
+}

@@ -28,7 +28,12 @@ const answerSchema = z.object({
   openQuestions: z.array(z.string()).default([])
 });
 
-const client = config.openAiApiKey ? new OpenAI({ apiKey: config.openAiApiKey }) : null;
+const client = config.openAiApiKey
+  ? new OpenAI({
+      apiKey: config.openAiApiKey,
+      baseURL: config.openAiBaseUrl || undefined
+    })
+  : null;
 
 function requireClient(): OpenAI {
   if (!client) {

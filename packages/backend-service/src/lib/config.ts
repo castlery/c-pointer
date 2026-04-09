@@ -5,6 +5,7 @@ export const config = {
   githubToken: process.env.GITHUB_TOKEN || "",
   openAiApiKey: process.env.OPENAI_API_KEY || "",
   openAiModel: process.env.OPENAI_MODEL || "gpt-4.1-mini",
+  openAiBaseUrl: process.env.OPENAI_BASE_URL || "",
   githubRepo: process.env.GITHUB_REPO || "castlery/joyboy",
   defaultBranch: process.env.DEFAULT_BRANCH || "master",
   databasePath: process.env.DATABASE_PATH || "data/c-pointer.sqlite"

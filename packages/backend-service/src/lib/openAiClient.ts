@@ -81,7 +81,16 @@ export async function verifyOpenAiAccess(): Promise<"ok" | "missing" | "error"> 
   }
 
   try {
-    await requireClient().models.list();
+    await requireClient().chat.completions.create({
+      model: config.openAiModel,
+      messages: [
+        {
+          role: "user",
+          content: "reply with ok"
+        }
+      ],
+      max_tokens: 5
+    });
     return "ok";
   } catch {
     return "error";

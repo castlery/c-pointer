@@ -1,3 +1,4 @@
+import "./lib/network.js";
 import { createApp } from "./app.js";
 import { config } from "./lib/config.js";
 
